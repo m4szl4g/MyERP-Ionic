@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Project detail</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form
+    [formGroup]="detailForm"
+    (ngSubmit)="save()"
+    [projectDetail]="project$ | async"
+  >
+    <ion-item>
+      <ion-label position="floating">Name</ion-label>
+      <ion-input formControlName="name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Manager</ion-label>
+      <ion-input formControlName="projectManager"></ion-input>
+    </ion-item>
+
+    <ion-button
+      type="submit"
+      [disabled]="!detailForm.valid || detailForm.pristine"
+      type="submit"
+      >Save</ion-button
+    >
+  </form>
+</ion-content>
