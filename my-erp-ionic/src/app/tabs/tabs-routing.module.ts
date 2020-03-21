@@ -18,6 +18,16 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'project',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../project/project.module').then(m => m.ProjectPageModule)
+          }
+        ]
+      },
+      {
         path: '',
         redirectTo: '/tabs/home',
         pathMatch: 'full'

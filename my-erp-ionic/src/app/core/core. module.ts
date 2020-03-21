@@ -8,11 +8,13 @@ import * as fromProject from './store/reducers/project.reducers';
 
 import { StoreRouterConnectingModule, routerReducer } from '@ngrx/router-store';
 import { RouterEffects } from './store/effects/router.effect';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
+    HttpClientModule,
     StoreModule.forRoot({
       project: fromProject.reducer,
       router: routerReducer
