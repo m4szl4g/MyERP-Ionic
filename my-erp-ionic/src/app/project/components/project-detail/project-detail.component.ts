@@ -20,8 +20,8 @@ export class ProjectDetailComponent implements OnInit {
     id: new FormControl(),
     name: new FormControl('', [Validators.required, Validators.minLength(4)]),
     projectManager: new FormControl('', [Validators.required]),
-    startDate: new FormControl(null, [Validators.required]),
-    endDate: new FormControl(null)
+    startDate: new FormControl('', [Validators.required]),
+    endDate: new FormControl('')
   });
 
   constructor(private store: Store<projectState.ProjectState>) {}
