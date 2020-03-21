@@ -12,15 +12,35 @@
   >
     <ion-item>
       <ion-label position="floating">Name</ion-label>
-      <ion-input formControlName="name"></ion-input>
+      <ion-input formControlName="name" place="Type here..."></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label position="floating">Manager</ion-label>
-      <ion-input formControlName="projectManager"></ion-input>
+      <ion-input
+        formControlName="projectManager"
+        place="Type here..."
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Start Date</ion-label>
+      <ion-datetime
+        formControlName="startDate"
+        placeholder="Select Date"
+      ></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">End Date</ion-label>
+      <ion-datetime
+        formControlName="endDate"
+        placeholder="Select Date"
+      ></ion-datetime>
     </ion-item>
 
     <ion-button
+      expand="block"
       type="submit"
       [disabled]="!detailForm.valid || detailForm.pristine"
       type="submit"
