@@ -7,5 +7,12 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  Home!!!
+  <ion-button
+    button
+    expand="block"
+    color="primary"
+    *ngIf="!auth.loggedIn"
+    (click)="auth.login()"
+    >Log In</ion-button
+  >
 </ion-content>
