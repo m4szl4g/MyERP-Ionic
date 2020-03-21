@@ -31,11 +31,13 @@ export class ProjectDetailComponent implements OnInit {
   }
 
   public navigate(): void {
-    this.store.dispatch(new RouterActions.Go({ path: ['/tabs/project'] }));
+    this.store.dispatch(new RouterActions.Back());
   }
 
   public save(): void {
     const project = this.detailForm.value;
+
+    //navigates back from the store
     this.store.dispatch(new Updated({ project }));
   }
 }

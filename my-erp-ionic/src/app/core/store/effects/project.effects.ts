@@ -1,13 +1,13 @@
-import { Injectable } from "@angular/core";
-import { Actions, createEffect, ofType, Effect } from "@ngrx/effects";
-import { EMPTY, of } from "rxjs";
-import { map, mergeMap, catchError, tap, filter } from "rxjs/operators";
-import { ProjectService } from "src/app/core/services/project.service";
-import * as RouterActions from "src/app/core/store/actions/router.actions";
-import * as projectActions from "../actions/project.actions";
-import { ROUTER_NAVIGATION, RouterNavigationAction } from "@ngrx/router-store";
-import { ProjectState } from "../reducers/project.reducers";
-import { Store } from "@ngrx/store";
+import { Injectable } from '@angular/core';
+import { Actions, createEffect, ofType, Effect } from '@ngrx/effects';
+import { EMPTY, of } from 'rxjs';
+import { map, mergeMap, catchError, tap, filter } from 'rxjs/operators';
+import { ProjectService } from 'src/app/core/services/project.service';
+import * as RouterActions from 'src/app/core/store/actions/router.actions';
+import * as projectActions from '../actions/project.actions';
+import { ROUTER_NAVIGATION, RouterNavigationAction } from '@ngrx/router-store';
+import { ProjectState } from '../reducers/project.reducers';
+import { Store } from '@ngrx/store';
 
 @Injectable()
 export class ProjectEffects {
@@ -69,7 +69,7 @@ export class ProjectEffects {
     tap(() =>
       this.store.dispatch(
         new RouterActions.Go({
-          path: ["/project"]
+          path: ['tabs/project']
         })
       )
     )
@@ -78,12 +78,12 @@ export class ProjectEffects {
   @Effect() routedDetail$ = this.actions$.pipe(
     ofType(ROUTER_NAVIGATION),
     filter((action: RouterNavigationAction) =>
-      new RegExp("^/project/[0-9]+").test(action.payload.routerState.url)
+      new RegExp('^/project/[0-9]+').test(action.payload.routerState.url)
     ),
     map(
       action =>
         new projectActions.GetById(
-          action.payload.routerState.root.firstChild.params["id"]
+          action.payload.routerState.root.firstChild.params['id']
         )
     )
   );
