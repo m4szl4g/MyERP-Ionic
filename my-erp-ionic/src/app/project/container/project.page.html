@@ -1,0 +1,11 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Projects</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngFor="let project of projects$ | async">
+    <project-tile [project]="project"></project-tile>
+  </ion-list>
+</ion-content>

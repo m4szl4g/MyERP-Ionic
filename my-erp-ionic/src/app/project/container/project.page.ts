@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
-import { Project } from '../shared/models/project.model';
+import { Project } from '../../shared/models/project.model';
 import { Store, select } from '@ngrx/store';
 
-import * as projectActions from '../core/store/actions/project.actions';
-import * as projectState from '../core/store/reducers/project.reducers';
-import * as projectSelectors from '../core/store/selectors/project.selectors';
+import * as projectActions from '../../core/store/actions/project.actions';
+import * as projectState from '../../core/store/reducers/project.reducers';
+import * as projectSelectors from '../../core/store/selectors/project.selectors';
 
 @Component({
   selector: 'app-project',
@@ -22,5 +22,9 @@ export class ProjectPage implements OnInit {
     this.projects$ = this.store.pipe(
       select(projectSelectors.selectAllProjects)
     );
+  }
+
+  public navigate(): void {
+    console.log('navigate');
   }
 }

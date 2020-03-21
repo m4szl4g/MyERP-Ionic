@@ -4,8 +4,11 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { ProjectPage } from './project.page';
+import { ProjectPage } from './container/project.page';
 import { RouterModule } from '@angular/router';
+import { ProjectTileComponent } from './components/project-tile/project-tile.component';
+import { ProjectDetailComponent } from './components/project-detail/project-detail.component';
+import { ProjectDetailDirective } from './directives/project-detail.directive';
 
 @NgModule({
   imports: [
@@ -14,6 +17,11 @@ import { RouterModule } from '@angular/router';
     IonicModule,
     RouterModule.forChild([{ path: '', component: ProjectPage }])
   ],
-  declarations: [ProjectPage]
+  declarations: [
+    ProjectPage,
+    ProjectTileComponent,
+    ProjectDetailComponent,
+    ProjectDetailDirective
+  ]
 })
 export class ProjectPageModule {}
