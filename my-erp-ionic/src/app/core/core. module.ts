@@ -10,11 +10,15 @@ import { StoreRouterConnectingModule, routerReducer } from '@ngrx/router-store';
 import { RouterEffects } from './store/effects/router.effect';
 import { HttpClientModule } from '@angular/common/http';
 
+import { IonicStorageModule } from '@ionic/storage';
+import { SafariViewController } from '@ionic-native/safari-view-controller/ngx';
+
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
     HttpClientModule,
+    IonicStorageModule.forRoot(),
     StoreModule.forRoot({
       project: fromProject.reducer,
       router: routerReducer
@@ -22,6 +26,7 @@ import { HttpClientModule } from '@angular/common/http';
     EffectsModule.forRoot([ProjectEffects, RouterEffects]),
     StoreDevtoolsModule.instrument({ maxAge: 100 }),
     StoreRouterConnectingModule.forRoot()
-  ]
+  ],
+  providers: [SafariViewController]
 })
 export class CoreModule {}

@@ -13,6 +13,8 @@
   },
   "private": true,
   "dependencies": {
+    "@angular-devkit/architect": "^0.900.7",
+    "@angular-devkit/build-angular": "^0.900.7",
     "@angular/common": "~8.2.14",
     "@angular/core": "~8.2.14",
     "@angular/forms": "~8.2.14",
@@ -22,6 +24,7 @@
     "@auth0/cordova": "^0.4.3",
     "@babel/compat-data": "^7.8.6",
     "@ionic-native/core": "^5.0.0",
+    "@ionic-native/safari-view-controller": "^5.22.0",
     "@ionic-native/splash-screen": "^5.0.0",
     "@ionic-native/status-bar": "^5.0.0",
     "@ionic/angular": "^5.0.0",
@@ -48,7 +51,6 @@
   },
   "devDependencies": {
     "@angular-builders/custom-webpack": "^9.0.0",
-    "@angular-devkit/build-angular": "~0.803.20",
     "@angular/cli": "~8.3.23",
     "@angular/compiler": "~8.2.14",
     "@angular/compiler-cli": "~8.2.14",
@@ -81,6 +83,12 @@
       "cordova-plugin-ionic-keyboard": {},
       "cordova-android-support-gradle-release": {
         "ANDROID_SUPPORT_VERSION": "27.+"
+      },
+      "cordova-plugin-customurlscheme": {
+        "URL_SCHEME": "io.ionic.myerp.mobile",
+        "ANDROID_SCHEME": "io.ionic.myerp.mobile",
+        "ANDROID_HOST": "moovio.eu.auth0.com",
+        "ANDROID_PATHPREFIX": "/cordova/io.ionic.myerp.mobile/callback"
       }
     },
     "platforms": [
