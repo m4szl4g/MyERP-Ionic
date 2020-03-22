@@ -8,7 +8,9 @@ import { environment } from 'src/environments/environment';
 
 declare let cordova: any;
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class AuthService {
   Auth0 = new auth0.WebAuth(environment.auth0);
   Client = new Auth0Cordova(environment.auth0);
