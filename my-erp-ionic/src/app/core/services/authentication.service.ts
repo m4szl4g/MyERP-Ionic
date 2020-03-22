@@ -6,6 +6,10 @@ import Auth0Cordova from '@auth0/cordova';
 import * as auth0 from 'auth0-js';
 import { environment } from 'src/environments/environment';
 
+import * as projectState from '../../core/store/reducers/project.reducers';
+import * as RouterActions from '../../core/store/actions/router.actions';
+import { Store } from '@ngrx/store';
+
 declare let cordova: any;
 
 @Injectable({
@@ -22,7 +26,8 @@ export class AuthService {
   constructor(
     public zone: NgZone,
     private storage: Storage,
-    private safariViewController: SafariViewController
+    private safariViewController: SafariViewController,
+    private store: Store<projectState.ProjectState>
   ) {
     this.storage.get('profile').then(user => (this.user = user));
     this.storage.get('access_token').then(token => (this.accessToken = token));
@@ -62,6 +67,7 @@ export class AuthService {
         this.storage
           .set('profile', profile)
           .then(val => this.zone.run(() => (this.user = profile)));
+        this.store.dispatch(new RouterActions.Go({ path: ['/'] }));
       });
     });
   }

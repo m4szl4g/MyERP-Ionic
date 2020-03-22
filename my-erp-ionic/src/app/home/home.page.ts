@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../core/services/authentication.service';
 import { AlertController } from '@ionic/angular';
+import { Store } from '@ngrx/store';
+import * as projectState from '../core/store/reducers/project.reducers';
+import * as RouterActions from '../core/store/actions/router.actions';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +13,8 @@ import { AlertController } from '@ionic/angular';
 export class HomePage {
   constructor(
     public auth: AuthService,
-    public alertController: AlertController
+    private alertController: AlertController,
+    private store: Store<projectState.ProjectState>
   ) {}
 
   public async logout(): Promise<void> {
@@ -32,6 +36,7 @@ export class HomePage {
           text: 'Ok',
           handler: () => {
             this.auth.logout();
+            this.store.dispatch(new RouterActions.Go({ path: ['/login'] }));
           }
         }
       ]
